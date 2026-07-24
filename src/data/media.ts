@@ -3,7 +3,7 @@ export const mediaItems = [
     title: 'Killcam of the Week',
     type: 'Video',
     description: 'Weekly featured gameplay highlight from the DMZ community.',
-    videoSrc: 'media/DrPapolito_Killcam_Highlight.mp4',
+    videoSrc: 'videos/DrPapolito_Killcam_Highlight.mp4',
   },
   {
     title: 'Operation Screenshot',
