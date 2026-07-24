@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { clanInfo } from '../../data/clanInfo';
 import { navigation } from '../../data/navigation';
+import { assetPath } from '../../utils/assetPath';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function Navbar() {
     <header className="site-header">
       <NavLink className="brand" to="/" onClick={() => setOpen(false)}>
         <span className="brand-mark" aria-hidden="true">
-          <img src="/images/emblems/dmz-navbar-emblem.png" alt="" />
+          <img src={assetPath('images/emblems/dmz-navbar-emblem.png')} alt="" />
         </span>
         <span>
           <strong>{clanInfo.name}</strong>

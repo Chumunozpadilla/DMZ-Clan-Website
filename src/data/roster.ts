@@ -1,3 +1,5 @@
+import { assetPath } from '../utils/assetPath';
+
 export type RosterMember = {
   gamerTag: string;
   rank: string;
@@ -9,7 +11,7 @@ export type RosterMember = {
 
 const playStation = 'PlayStation';
 const multiplayer = 'Multiplayer';
-const rosterImage = (gamerTag: string) => `/images/roster/${gamerTag}.png`;
+const rosterImage = (gamerTag: string) => assetPath(`images/roster/${gamerTag}.png`);
 
 export const rosterSummary = [
   { label: 'Leaders', value: '5' },

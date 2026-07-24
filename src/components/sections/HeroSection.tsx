@@ -1,5 +1,6 @@
 import { ShieldAlert, Users } from 'lucide-react';
 import { clanInfo } from '../../data/clanInfo';
+import { assetPath } from '../../utils/assetPath';
 import Button from '../ui/Button';
 
 export default function HeroSection() {
@@ -7,7 +8,11 @@ export default function HeroSection() {
     <section className="hero">
       <div className="hero-copy">
         <p className="eyebrow">18+ Call of Duty Community</p>
-        <h1>{clanInfo.name}</h1>
+        <h1>
+          {clanInfo.name.split(' ').map((word) => (
+            <span key={word}>{word}</span>
+          ))}
+        </h1>
         <p className="hero-tagline">{clanInfo.tagline}</p>
         <p>{clanInfo.description}</p>
         <div className="hero-actions">
@@ -31,7 +36,7 @@ export default function HeroSection() {
           <span>18+ Access Only</span>
         </div>
         <div className="dmz-emblem" aria-label="Dead Mans Zone tactical insignia">
-          <img src="/images/emblems/dmz-emblem.png" alt="Dead Mans Zone DMZ containment force emblem" />
+          <img src={assetPath('images/emblems/dmz-emblem.png')} alt="Dead Mans Zone DMZ containment force emblem" />
           <div className="emblem-tags">
             <span>Unit Patch</span>
             <span>Biohazard Control</span>

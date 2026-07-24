@@ -17,10 +17,15 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 22% 8%, rgba(215, 38, 56, 0.16), transparent 32rem),
     radial-gradient(circle at 78% 2%, rgba(245, 197, 66, 0.13), transparent 28rem),
@@ -73,7 +78,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  min-width: max-content;
+  min-width: 0;
 }
 
 .brand-mark {
@@ -114,6 +119,7 @@ h4 {
 }
 
 .nav-links a {
+  min-height: 2.75rem;
   padding: 0.65rem 0.75rem;
   color: #cbd5e1;
   font-size: 0.88rem;
@@ -146,6 +152,7 @@ h4 {
 main {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
+  min-width: 0;
 }
 
 .hero {
@@ -168,9 +175,13 @@ main {
 h1 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(3.6rem, 10vw, 8rem);
+  font-size: clamp(3.1rem, 10vw, 8rem);
   line-height: 0.86;
   text-transform: uppercase;
+}
+
+h1 span {
+  display: block;
 }
 
 h2 {
@@ -195,11 +206,23 @@ h4 {
 p {
   color: #aeb7c2;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .hero-copy > p:last-of-type {
   max-width: 42rem;
   font-size: 1.08rem;
+}
+
+.hero-copy,
+.join-layout > *,
+.contact-grid > *,
+.content-grid > *,
+.media-grid > *,
+.card-grid > *,
+.feature-grid > *,
+.rule-list > * {
+  min-width: 0;
 }
 
 .hero-tagline {
@@ -228,6 +251,7 @@ p {
   border: 1px solid transparent;
   font-weight: 800;
   text-transform: uppercase;
+  text-align: center;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
 }
 
@@ -269,6 +293,7 @@ p {
   overflow: hidden;
   padding: 1.2rem;
   min-height: 28rem;
+  min-width: 0;
 }
 
 .containment-panel::before {
@@ -320,6 +345,7 @@ p {
   border: 1px solid rgba(229, 231, 235, 0.12);
   background: rgba(8, 10, 12, 0.72);
   padding: 0.35rem 0.5rem;
+  overflow-wrap: anywhere;
 }
 
 .panel-warning-row span:first-child {
@@ -438,6 +464,7 @@ dt {
 .media-card,
 .roster-card,
 .join-panel {
+  min-width: 0;
   padding: 1.2rem;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
@@ -467,6 +494,7 @@ dt {
 .section-header {
   max-width: 760px;
   margin-bottom: 1.5rem;
+  min-width: 0;
 }
 
 .section-header p:last-child {
@@ -642,6 +670,13 @@ dt {
   font-weight: 700;
 }
 
+.roster-card h4,
+.roster-card dd,
+.info-card h3,
+.media-card h3 {
+  overflow-wrap: anywhere;
+}
+
 .social-list {
   display: flex;
   flex-wrap: wrap;
@@ -726,6 +761,12 @@ dt {
     display: flex;
   }
 
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .hero,
   .join-layout,
   .contact-grid {
@@ -749,16 +790,63 @@ dt {
   }
 
   .site-header {
-    padding: 0.75rem;
+    gap: 0.65rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brand-mark,
+  .brand-mark img {
+    width: 3rem;
+    height: 3rem;
   }
 
   .brand strong {
     font-size: 0.92rem;
   }
 
+  .brand small {
+    font-size: 0.68rem;
+  }
+
   .hero {
     min-height: auto;
-    padding: 2.8rem 0;
+    padding: 2.3rem 0;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 17vw, 4.2rem);
+    line-height: 0.9;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 10vw, 2.45rem);
+  }
+
+  .hero-copy > p:last-of-type,
+  .section-header p:last-child {
+    font-size: 1rem;
+  }
+
+  .containment-panel {
+    padding: 0.85rem;
+    min-height: auto;
+  }
+
+  .panel-topline {
+    gap: 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  .dmz-emblem {
+    width: min(14rem, 76vw);
+  }
+
+  .readout-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions,
@@ -779,6 +867,10 @@ dt {
 
   .rule-card {
     grid-template-columns: 3rem 1fr;
+  }
+
+  .page-section {
+    padding: 3rem 0;
   }
 
   .roster-heading,
