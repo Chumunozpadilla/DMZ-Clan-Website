@@ -1,8 +1,9 @@
 export const mediaItems = [
   {
-    title: 'Squad Clip Placeholder',
+    title: 'Killcam of the Week',
     type: 'Video',
-    description: 'Replace with a DMZ gameplay clip, highlight reel, or community edit.',
+    description: 'Weekly featured gameplay highlight from the DMZ community.',
+    videoSrc: 'media/DrPapolito_Killcam_Highlight.mp4',
   },
   {
     title: 'Operation Screenshot',

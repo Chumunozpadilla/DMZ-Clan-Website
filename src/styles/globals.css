@@ -607,6 +607,19 @@ dt {
   text-transform: uppercase;
 }
 
+.media-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 11rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  background: #080a0c;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
 .roster-group {
   display: grid;
   gap: 1rem;
