@@ -12,7 +12,7 @@ export default function Button({ children, href, variant = 'primary', className 
 
   if (href.startsWith('http')) {
     return (
-      <a className={classes} href={href} target="_blank" rel="noreferrer" {...props}>
+      <a className={classes} href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
     );

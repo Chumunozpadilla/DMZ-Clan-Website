@@ -9,7 +9,7 @@ export default function Footer() {
       </div>
       <div className="footer-links">
         {clanInfo.socials.map((social) => (
-          <a key={social.label} href={social.href} target="_blank" rel="noreferrer">
+          <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">
             {social.label}
           </a>
         ))}

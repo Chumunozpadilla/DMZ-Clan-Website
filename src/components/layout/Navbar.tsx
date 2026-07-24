@@ -10,7 +10,9 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" onClick={() => setOpen(false)}>
-        <span className="brand-mark">DMZ</span>
+        <span className="brand-mark" aria-hidden="true">
+          <img src="/images/emblems/dmz-navbar-emblem.png" alt="" />
+        </span>
         <span>
           <strong>{clanInfo.name}</strong>
           <small>Containment Net</small>
@@ -25,7 +27,7 @@ export default function Navbar() {
             {item.label}
           </NavLink>
         ))}
-        <a className="nav-discord" href={clanInfo.discordInvite} target="_blank" rel="noreferrer">
+        <a className="nav-discord" href={clanInfo.discordInvite} target="_blank" rel="noopener noreferrer">
           <Radio size={16} />
           Discord
         </a>

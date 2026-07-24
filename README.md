@@ -30,7 +30,7 @@ pnpm build
 
 ## Replace placeholders
 
-Replace the placeholder Discord invite, social links, roster entries, event dates, media items, and contact details when official DMZ information is ready.
+Replace placeholder social links, roster entries, event dates, media items, and contact details when official DMZ information is ready.
 
 ## Assets
 

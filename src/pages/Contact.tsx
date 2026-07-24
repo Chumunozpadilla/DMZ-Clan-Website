@@ -15,7 +15,7 @@ export default function Contact() {
         <article className="join-panel">
           <Radio size={28} />
           <h3>Discord</h3>
-          <p>Placeholder invite link. Replace it with the official DMZ Discord invite when ready.</p>
+          <p>Use the official DMZ Discord invite for recruitment, officer questions, and event coordination.</p>
           <Button href={clanInfo.discordInvite}>Join Discord</Button>
         </article>
         <article className="info-card">
@@ -23,7 +23,7 @@ export default function Contact() {
           <h3>Social Links</h3>
           <div className="social-list">
             {clanInfo.socials.map((social) => (
-              <a href={social.href} key={social.label} target="_blank" rel="noreferrer">
+              <a href={social.href} key={social.label} target="_blank" rel="noopener noreferrer">
                 {social.label}
               </a>
             ))}

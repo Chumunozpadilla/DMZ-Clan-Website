@@ -32,7 +32,11 @@ export default function Roster() {
               {group.members.map((member) => (
                 <article className="roster-card" key={member.gamerTag}>
                   <div className="roster-avatar">
-                    <UserRound size={28} />
+                    {member.profileImage ? (
+                      <img src={member.profileImage} alt={`${member.gamerTag} profile`} />
+                    ) : (
+                      <UserRound size={28} />
+                    )}
                   </div>
                   <h4>{member.gamerTag}</h4>
                   <dl>

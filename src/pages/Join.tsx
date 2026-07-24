@@ -17,7 +17,7 @@ export default function Join() {
       <SectionHeader
         eyebrow="Recruitment"
         title="Request access to the zone"
-        description="Use the placeholder Discord invite below until the official DMZ invite is added."
+        description="Use the official DMZ Discord invite below to enter the community intake channel."
       />
       <div className="join-layout">
         <div className="info-card">
