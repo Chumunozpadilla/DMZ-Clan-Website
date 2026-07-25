@@ -164,6 +164,75 @@ main {
   padding: 4rem 0;
 }
 
+.time-zone-section {
+  margin: 1rem 0 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(245, 197, 66, 0.22);
+  background:
+    linear-gradient(90deg, rgba(245, 197, 66, 0.08) 0 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 66, 0.06) 0 1px, transparent 1px),
+    rgba(8, 10, 12, 0.72);
+  background-size: 36px 36px;
+}
+
+.time-zone-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.2);
+  padding-bottom: 0.55rem;
+}
+
+.time-zone-header .eyebrow {
+  margin: 0;
+}
+
+.time-zone-header span {
+  color: #87919f;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.time-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.time-zone-card {
+  min-width: 0;
+  border: 1px solid rgba(229, 231, 235, 0.1);
+  border-left: 3px solid #f5c542;
+  background: rgba(18, 22, 27, 0.82);
+  padding: 0.75rem;
+}
+
+.time-zone-card h2 {
+  margin: 0 0 0.25rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.time-zone-card time {
+  display: block;
+  color: #f5c542;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.time-zone-card small {
+  display: block;
+  margin-top: 0.4rem;
+}
+
 .eyebrow {
   margin: 0 0 0.65rem;
   color: #f5c542;
@@ -792,6 +861,7 @@ dt {
   .media-grid,
   .roster-grid,
   .personnel-summary,
+  .time-zone-grid,
   .rule-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -827,7 +897,30 @@ dt {
 
   .hero {
     min-height: auto;
-    padding: 2.3rem 0;
+    padding: 1.8rem 0 2.3rem;
+  }
+
+  .time-zone-section {
+    margin-top: 0.75rem;
+    padding: 0.7rem;
+  }
+
+  .time-zone-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .time-zone-card {
+    padding: 0.65rem;
+  }
+
+  .time-zone-card h2 {
+    font-size: 0.92rem;
+  }
+
+  .time-zone-card time {
+    font-size: 1.25rem;
   }
 
   h1 {
