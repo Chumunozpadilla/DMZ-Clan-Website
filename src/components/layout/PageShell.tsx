@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import TacticalRadio from './TacticalRadio';
 
 export default function PageShell({ children }: { children: ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function PageShell({ children }: { children: ReactNode }) {
       <Navbar />
       <main>{children}</main>
       <Footer />
+      <TacticalRadio />
     </div>
   );
 }
