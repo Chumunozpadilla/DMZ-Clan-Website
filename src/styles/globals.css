@@ -233,6 +233,92 @@ main {
   margin-top: 0.4rem;
 }
 
+.operations-alert {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  margin: 1rem 0 0;
+  border: 1px solid rgba(245, 197, 66, 0.32);
+  background:
+    linear-gradient(90deg, rgba(215, 38, 56, 0.18) 0 3px, transparent 3px),
+    linear-gradient(135deg, rgba(245, 197, 66, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(18, 22, 27, 0.95), rgba(8, 10, 12, 0.95));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+  padding: clamp(1rem, 3vw, 1.4rem);
+}
+
+.operations-alert-copy,
+.operations-alert-video {
+  min-width: 0;
+}
+
+.operations-alert-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.operations-alert-topline span,
+.operations-video-label {
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  background: rgba(8, 10, 12, 0.75);
+  color: #f5c542;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.operations-alert-topline span {
+  padding: 0.28rem 0.45rem;
+}
+
+.operations-alert h2 {
+  max-width: 34rem;
+  font-size: clamp(1.85rem, 4vw, 3.2rem);
+  overflow-wrap: anywhere;
+}
+
+.operations-alert p:not(.eyebrow) {
+  max-width: 42rem;
+}
+
+.operations-alert-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.operations-alert-video {
+  position: relative;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+  background:
+    linear-gradient(90deg, rgba(245, 197, 66, 0.1) 0 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 66, 0.08) 0 1px, transparent 1px),
+    #080a0c;
+  background-size: 34px 34px;
+  padding: 0.7rem;
+}
+
+.operations-video-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.operations-alert-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #080a0c;
+}
+
 .eyebrow {
   margin: 0 0 0.65rem;
   color: #f5c542;
@@ -1024,6 +1110,7 @@ dt {
   }
 
   .hero,
+  .operations-alert,
   .join-layout,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1095,6 +1182,28 @@ dt {
 
   .time-zone-card time {
     font-size: 1.25rem;
+  }
+
+  .operations-alert {
+    margin-top: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .operations-alert-topline {
+    gap: 0.35rem;
+  }
+
+  .operations-alert h2 {
+    font-size: clamp(1.75rem, 11vw, 2.35rem);
+  }
+
+  .operations-alert-actions,
+  .operations-alert-actions .btn {
+    width: 100%;
+  }
+
+  .operations-alert-video {
+    padding: 0.5rem;
   }
 
   h1 {
