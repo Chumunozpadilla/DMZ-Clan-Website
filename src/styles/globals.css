@@ -869,6 +869,500 @@ dt {
   background: rgba(245, 197, 66, 0.08);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.armory-page {
+  min-width: 0;
+}
+
+.armory-briefing,
+.armory-filters,
+.weapon-build-card,
+.armory-empty-state {
+  border: 1px solid rgba(245, 197, 66, 0.24);
+  background:
+    linear-gradient(90deg, rgba(245, 197, 66, 0.07) 0 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 66, 0.05) 0 1px, transparent 1px),
+    rgba(8, 10, 12, 0.82);
+  background-size: 32px 32px;
+}
+
+.armory-briefing {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border-left: 4px solid #d72638;
+}
+
+.armory-briefing span,
+.armory-results-header strong {
+  color: #f5c542;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.armory-briefing p {
+  margin: 0.45rem 0 0;
+}
+
+.armory-filters {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1.4fr) repeat(3, minmax(9rem, 1fr));
+  gap: 0.75rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.armory-filters label {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.armory-filters label > span,
+.attachment-list > span,
+.build-code-panel span {
+  color: #87919f;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.armory-search-field div {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.armory-filters input[type='search'],
+.armory-filters select {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  border: 1px solid rgba(229, 231, 235, 0.16);
+  background: rgba(8, 10, 12, 0.92);
+  color: #ffffff;
+  padding: 0.65rem 0.7rem;
+}
+
+.armory-search-field div {
+  border: 1px solid rgba(229, 231, 235, 0.16);
+  background: rgba(8, 10, 12, 0.92);
+  padding-left: 0.65rem;
+}
+
+.armory-search-field input[type='search'] {
+  border: 0;
+  background: transparent;
+  padding-left: 0;
+}
+
+.armory-filters input:focus-visible,
+.armory-filters select:focus-visible,
+.copy-code-button:focus-visible,
+.build-card-actions a:focus-visible,
+.featured-armory-card:focus-visible,
+.featured-armory-controls button:focus-visible,
+.featured-armory-dots button:focus-visible,
+.featured-armory-link:focus-visible {
+  outline: 2px solid #f5c542;
+  outline-offset: 2px;
+}
+
+.armory-toggle {
+  display: flex !important;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem !important;
+  border: 1px solid rgba(245, 197, 66, 0.22);
+  padding: 0.65rem 0.7rem;
+  background: rgba(18, 22, 27, 0.82);
+}
+
+.armory-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #f5c542;
+}
+
+.armory-clear,
+.copy-code-button,
+.build-card-actions a,
+.featured-armory-link,
+.featured-armory-controls button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  background: rgba(18, 22, 27, 0.92);
+  color: #f5c542;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.armory-clear {
+  padding: 0.65rem 0.7rem;
+}
+
+.copy-code-button {
+  padding: 0.7rem 0.8rem;
+}
+
+.armory-clear:hover,
+.copy-code-button:hover,
+.build-card-actions a:hover,
+.featured-armory-link:hover,
+.featured-armory-controls button:hover {
+  border-color: rgba(245, 197, 66, 0.75);
+  background: rgba(245, 197, 66, 0.12);
+}
+
+.armory-results-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.armory-results-header span {
+  color: #cbd5e1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.armory-build-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.weapon-build-card {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.weapon-build-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 197, 66, 0.42);
+}
+
+.weapon-build-visual,
+.featured-armory-preview {
+  position: relative;
+  min-height: 10rem;
+  overflow: hidden;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(215, 38, 56, 0.18), transparent 8rem),
+    repeating-linear-gradient(135deg, rgba(245, 197, 66, 0.12) 0 2px, transparent 2px 13px),
+    #080a0c;
+}
+
+.weapon-build-visual::before,
+.featured-armory-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(245, 197, 66, 0.12) 0 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 66, 0.08) 0 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.55;
+}
+
+.weapon-build-visual > *,
+.featured-armory-preview > * {
+  position: relative;
+  z-index: 1;
+}
+
+.weapon-build-visual div,
+.featured-armory-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #f5c542;
+}
+
+.weapon-build-visual div span,
+.featured-armory-preview > span {
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  padding: 0.2rem 0.45rem;
+  background: rgba(8, 10, 12, 0.78);
+  color: #f5c542;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.weapon-build-visual strong,
+.featured-armory-preview strong {
+  display: block;
+  margin-top: 1.75rem;
+  color: #ffffff;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: clamp(1.75rem, 6vw, 2.65rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.weapon-build-visual small,
+.featured-armory-preview small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #f5c542;
+}
+
+.weapon-build-body {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.build-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.build-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(229, 231, 235, 0.14);
+  padding: 0.22rem 0.45rem;
+  background: rgba(8, 10, 12, 0.72);
+  color: #dbe2ea;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.build-badge-source {
+  border-color: rgba(245, 197, 66, 0.38);
+  color: #f5c542;
+}
+
+.build-badge-verified {
+  border-color: rgba(92, 211, 95, 0.35);
+  color: #5cd35f;
+}
+
+.build-badge-mode {
+  border-color: rgba(215, 38, 56, 0.42);
+  color: #ffffff;
+}
+
+.weapon-build-card h3,
+.featured-armory-content h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.25rem;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.weapon-build-card p,
+.featured-armory-content p {
+  margin: 0;
+}
+
+.build-code-panel {
+  display: grid;
+  gap: 0.25rem;
+  border-left: 3px solid #d72638;
+  padding: 0.75rem;
+  background: rgba(8, 10, 12, 0.72);
+}
+
+.build-code-panel code {
+  color: #ffffff;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.build-code-panel.compact {
+  padding: 0.65rem;
+}
+
+.attachment-list ul {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+}
+
+.build-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.build-meta div {
+  min-width: 0;
+}
+
+.build-meta dd {
+  margin: 0.15rem 0 0;
+  color: #ffffff;
+  font-size: 0.83rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.build-card-actions,
+.featured-armory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.build-card-actions > *,
+.featured-armory-actions > * {
+  flex: 1 1 9rem;
+}
+
+.armory-empty-state {
+  padding: 1.2rem;
+}
+
+.armory-empty-state strong {
+  color: #ffffff;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.featured-armory-card {
+  display: grid;
+  min-height: 100%;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.9rem;
+}
+
+.featured-armory-card:focus-visible {
+  border-color: rgba(245, 197, 66, 0.75);
+}
+
+.featured-armory-preview {
+  min-height: 8.6rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+.featured-armory-scanline {
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: rgba(215, 38, 56, 0.75);
+}
+
+.featured-armory-preview strong {
+  margin-top: 1.3rem;
+  font-size: clamp(1.6rem, 8vw, 2.25rem);
+}
+
+.featured-armory-preview > span {
+  display: inline-flex;
+  margin-top: 0.55rem;
+}
+
+.featured-armory-content {
+  display: grid;
+  gap: 0.7rem;
+  min-height: 16rem;
+}
+
+.featured-armory-heading-row,
+.featured-armory-controls,
+.featured-armory-dots {
+  display: flex;
+  align-items: center;
+}
+
+.featured-armory-heading-row {
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.featured-armory-heading-row h3 {
+  margin: 0;
+}
+
+.featured-armory-heading-row span {
+  flex: 0 0 auto;
+  color: #87919f;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.featured-armory-controls {
+  justify-content: space-between;
+  gap: 0.7rem;
+  border-top: 1px solid rgba(245, 197, 66, 0.16);
+  padding-top: 0.7rem;
+}
+
+.featured-armory-controls button {
+  min-width: 2.75rem;
+  padding: 0;
+}
+
+.featured-armory-dots {
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.featured-armory-dots button {
+  min-width: 0.72rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  min-height: 0;
+  border-color: rgba(245, 197, 66, 0.35);
+  border-radius: 999px;
+  padding: 0;
+  background: rgba(229, 231, 235, 0.18);
+}
+
+.featured-armory-dots button.active {
+  background: #f5c542;
+}
+
+.featured-armory-empty {
+  display: grid;
+  min-height: 8.6rem;
+  place-items: center;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  background: rgba(8, 10, 12, 0.72);
+  color: #f5c542;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .cta-band {
   justify-content: space-between;
   margin: 3rem 0 5rem;
@@ -1116,6 +1610,11 @@ dt {
     grid-template-columns: 1fr;
   }
 
+  .armory-filters,
+  .armory-build-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .feature-grid,
   .card-grid,
   .content-grid,
@@ -1250,8 +1749,43 @@ dt {
   .media-grid,
   .roster-grid,
   .personnel-summary,
+  .armory-filters,
+  .armory-build-grid,
   .rule-strip {
     grid-template-columns: 1fr;
+  }
+
+  .armory-briefing,
+  .armory-filters,
+  .weapon-build-body {
+    padding: 0.85rem;
+  }
+
+  .armory-search-field div {
+    min-width: 0;
+  }
+
+  .build-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .build-card-actions,
+  .featured-armory-actions {
+    flex-direction: column;
+  }
+
+  .build-card-actions > *,
+  .featured-armory-actions > * {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .featured-armory-card {
+    gap: 0.75rem;
+  }
+
+  .featured-armory-content {
+    min-height: 16.5rem;
   }
 
   .rule-card {

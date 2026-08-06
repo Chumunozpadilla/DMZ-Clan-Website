@@ -38,7 +38,7 @@ jobs:
       - name: Add SPA fallback
         run: |
           cp dist/index.html dist/404.html
-          for route in about join operations roster rules media contact; do
+          for route in about join operations armory roster rules media contact; do
             mkdir -p "dist/$route"
             cp dist/index.html "dist/$route/index.html"
           done
