@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Original shotgun silhouette</title>
+  <desc id="desc">Original DMZ tactical vector silhouette of a generic shotgun.</desc>
+  <rect width="640" height="300" fill="none"/>
+  <g fill="none" stroke="#f5c542" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M64 144h246l32-30h116l28 30h92v30H478l-26 26H312l-28-26H64z"/>
+    <path d="M152 174l-34 60h58l48-60"/>
+    <path d="M326 200l22 50h56l-20-50"/>
+    <path d="M64 120h214"/>
+    <path d="M514 120h74"/>
+  </g>
+  <g stroke="#d72638" stroke-width="8" stroke-linecap="round">
+    <path d="M84 88h138"/>
+    <path d="M438 234h118"/>
+  </g>
+</svg>

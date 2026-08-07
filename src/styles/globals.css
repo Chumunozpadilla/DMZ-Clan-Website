@@ -1077,6 +1077,15 @@ dt {
     #080a0c;
 }
 
+.weapon-build-visual.has-image,
+.featured-armory-preview.has-image {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(245, 197, 66, 0.18), transparent 9rem),
+    radial-gradient(circle at 70% 18%, rgba(215, 38, 56, 0.18), transparent 8rem),
+    repeating-linear-gradient(135deg, rgba(245, 197, 66, 0.1) 0 2px, transparent 2px 13px),
+    #080a0c;
+}
+
 .weapon-build-visual::before,
 .featured-armory-preview::before {
   content: '';
@@ -1093,6 +1102,20 @@ dt {
 .featured-armory-preview > * {
   position: relative;
   z-index: 1;
+}
+
+.armory-weapon-image {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.45rem;
+  left: 0.3rem;
+  z-index: 0;
+  width: calc(100% - 0.6rem);
+  height: 70%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.78;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.62));
 }
 
 .weapon-build-visual div,
@@ -1214,6 +1237,23 @@ dt {
   padding-left: 1rem;
 }
 
+.attachment-list li {
+  color: #dbe2ea;
+  overflow-wrap: anywhere;
+}
+
+.attachment-list.empty {
+  border: 1px solid rgba(229, 231, 235, 0.1);
+  padding: 0.7rem;
+  background: rgba(8, 10, 12, 0.45);
+}
+
+.attachment-list.empty p {
+  margin-top: 0.3rem;
+  color: #87919f;
+  font-size: 0.88rem;
+}
+
 .build-meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1231,6 +1271,10 @@ dt {
   font-size: 0.83rem;
   font-weight: 700;
   overflow-wrap: anywhere;
+}
+
+.build-meta a {
+  color: #f5c542;
 }
 
 .build-card-actions,
@@ -1269,7 +1313,7 @@ dt {
 }
 
 .featured-armory-preview {
-  min-height: 8.6rem;
+  min-height: 10.4rem;
   border: 1px solid rgba(245, 197, 66, 0.2);
 }
 
@@ -1281,7 +1325,7 @@ dt {
 }
 
 .featured-armory-preview strong {
-  margin-top: 1.3rem;
+  margin-top: 2.4rem;
   font-size: clamp(1.6rem, 8vw, 2.25rem);
 }
 
@@ -1293,7 +1337,30 @@ dt {
 .featured-armory-content {
   display: grid;
   gap: 0.7rem;
-  min-height: 16rem;
+  min-height: 17.2rem;
+}
+
+.featured-attachment-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid rgba(245, 197, 66, 0.18);
+  padding: 0.55rem 0.65rem;
+  background: rgba(8, 10, 12, 0.58);
+}
+
+.featured-attachment-strip span {
+  color: #87919f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.featured-attachment-strip strong {
+  color: #f5c542;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 1.15rem;
 }
 
 .featured-armory-heading-row,
@@ -1785,7 +1852,7 @@ dt {
   }
 
   .featured-armory-content {
-    min-height: 16.5rem;
+    min-height: 18rem;
   }
 
   .rule-card {

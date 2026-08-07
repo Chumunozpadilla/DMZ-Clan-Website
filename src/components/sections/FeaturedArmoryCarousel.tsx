@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight, Crosshair } from 'lucide-react';
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { featuredWeaponBuilds } from '../../data/weaponBuilds';
+import { assetPath } from '../../utils/assetPath';
 import BuildStatusBadge from '../ui/BuildStatusBadge';
 import CopyBuildCodeButton from '../ui/CopyBuildCodeButton';
 
@@ -64,8 +65,14 @@ export default function FeaturedArmoryCarousel() {
       onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0]?.clientX ?? 0)}
       aria-label="Featured Armory carousel. Use left and right arrow keys to change featured builds."
     >
-      <div className="featured-armory-preview" aria-label={`${activeBuild.weapon} featured armory preview`}>
+      <div
+        className={activeBuild.imageUrl ? 'featured-armory-preview has-image' : 'featured-armory-preview'}
+        aria-label={`${activeBuild.weapon} featured armory preview`}
+      >
         <div className="featured-armory-scanline" />
+        {activeBuild.imageUrl ? (
+          <img className="armory-weapon-image" src={assetPath(activeBuild.imageUrl)} alt={activeBuild.imageAlt ?? `${activeBuild.weapon} image`} />
+        ) : null}
         <div className="featured-armory-top">
           <Crosshair size={22} aria-hidden="true" />
           <BuildStatusBadge label={activeBuild.sourceType} tone="source" />
@@ -89,6 +96,13 @@ export default function FeaturedArmoryCarousel() {
           <span>Build Code</span>
           <code>{activeBuild.buildCode}</code>
         </div>
+
+        {activeBuild.attachments && activeBuild.attachments.length > 0 ? (
+          <div className="featured-attachment-strip">
+            <span>Attachments</span>
+            <strong>{activeBuild.attachments.length}</strong>
+          </div>
+        ) : null}
 
         <div className="featured-armory-actions">
           <CopyBuildCodeButton code={activeBuild.buildCode} />

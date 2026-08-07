@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Original SMG silhouette</title>
+  <desc id="desc">Original DMZ tactical vector silhouette of a compact submachine gun.</desc>
+  <rect width="640" height="300" fill="none"/>
+  <g fill="none" stroke="#f5c542" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M112 134h182l28-26h106l24 26h72v34h-80l-22 24H286l-22-24H112z"/>
+    <path d="M164 168l-20 52h50l34-52"/>
+    <path d="M312 192l20 48h54l-20-48"/>
+    <path d="M76 132h48"/>
+    <path d="M448 116h34"/>
+  </g>
+  <g stroke="#d72638" stroke-width="8" stroke-linecap="round">
+    <path d="M110 92h86"/>
+    <path d="M430 226h88"/>
+  </g>
+</svg>

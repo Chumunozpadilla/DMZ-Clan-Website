@@ -1,5 +1,6 @@
 import { Crosshair, ExternalLink, Shield } from 'lucide-react';
 import type { WeaponBuild } from '../../data/weaponBuilds';
+import { assetPath } from '../../utils/assetPath';
 import BuildStatusBadge from '../ui/BuildStatusBadge';
 import CopyBuildCodeButton from '../ui/CopyBuildCodeButton';
 
@@ -8,9 +9,15 @@ type WeaponBuildCardProps = {
 };
 
 export default function WeaponBuildCard({ build }: WeaponBuildCardProps) {
+  const hasImage = Boolean(build.imageUrl);
+
   return (
     <article className="weapon-build-card">
-      <div className="weapon-build-visual" aria-label={`${build.weapon} ${build.weaponClass} tactical build preview`}>
+      <div
+        className={hasImage ? 'weapon-build-visual has-image' : 'weapon-build-visual'}
+        aria-label={`${build.weapon} ${build.weaponClass} tactical build preview`}
+      >
+        {build.imageUrl ? <img className="armory-weapon-image" src={assetPath(build.imageUrl)} alt={build.imageAlt ?? `${build.weapon} image`} /> : null}
         <div>
           <Crosshair size={24} aria-hidden="true" />
           <span>{build.mode}</span>
@@ -34,16 +41,18 @@ export default function WeaponBuildCard({ build }: WeaponBuildCardProps) {
           <code>{build.buildCode}</code>
         </div>
 
-        {build.attachments && build.attachments.length > 0 ? (
-          <div className="attachment-list">
-            <span>Verified Attachments</span>
+        <div className={build.attachments && build.attachments.length > 0 ? 'attachment-list' : 'attachment-list empty'}>
+          <span>Attachments</span>
+          {build.attachments && build.attachments.length > 0 ? (
             <ul>
               {build.attachments.map((attachment) => (
                 <li key={attachment}>{attachment}</li>
               ))}
             </ul>
-          </div>
-        ) : null}
+          ) : (
+            <p>Attachments not explicitly provided by source.</p>
+          )}
+        </div>
 
         <dl className="build-meta">
           {build.verifiedSeason ? (
@@ -60,6 +69,20 @@ export default function WeaponBuildCard({ build }: WeaponBuildCardProps) {
             <dt>Source</dt>
             <dd>{build.sourceName}</dd>
           </div>
+          {build.imageSourceName ? (
+            <div>
+              <dt>Image</dt>
+              <dd>
+                {build.imageSourceUrl ? (
+                  <a href={build.imageSourceUrl} target="_blank" rel="noopener noreferrer">
+                    {build.imageSourceName}
+                  </a>
+                ) : (
+                  build.imageSourceName
+                )}
+              </dd>
+            </div>
+          ) : null}
         </dl>
 
         <div className="build-card-actions">

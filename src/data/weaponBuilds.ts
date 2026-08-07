@@ -1,6 +1,7 @@
 export type WeaponMode = 'Multiplayer' | 'Zombies' | 'Warzone';
 export type SourceType = 'Official' | 'Community';
 export type VerificationStatus = 'Source Verified' | 'Clan Tested' | 'Needs Recheck';
+export type ImageUsageStatus = 'Official Permitted' | 'Permission Unclear' | 'Unavailable' | 'Original DMZ Asset';
 
 export type WeaponBuild = {
   id: string;
@@ -19,19 +20,70 @@ export type WeaponBuild = {
   verifiedSeason?: string;
   verificationStatus: VerificationStatus;
   featured: boolean;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageSourceName?: string;
+  imageSourceUrl?: string;
+  imageUsageStatus?: ImageUsageStatus;
 };
 
 export const currentBlackOps7Season = {
   name: 'Season 05',
   sourceName: 'Call of Duty Season 05 Announcement',
   sourceUrl: 'https://www.callofduty.com/blog/2026/07/call-of-duty-black-ops-7-warzone-season-05-announcement',
-  lastCheckedDate: '2026-08-06',
+  lastCheckedDate: '2026-08-07',
 };
 
 const officialSourceName = 'Call of Duty Weapon Guide';
-const lastCheckedDate = '2026-08-06';
+const lastCheckedDate = '2026-08-07';
+const gamespotSeason5MultiplayerSource = 'GameSpot - Best Loadouts In BO7 Season 5 Multiplayer';
+const gamespotSeason5WarzoneSource = 'GameSpot - Best Loadouts In Warzone For BO7 Season 5';
 
-export const weaponBuilds: WeaponBuild[] = [
+const weaponClassImages: Record<string, Pick<WeaponBuild, 'imageUrl' | 'imageAlt' | 'imageSourceName' | 'imageUsageStatus'>> = {
+  'Assault Rifle': {
+    imageUrl: 'images/armory/assault-rifle.svg',
+    imageAlt: 'Original DMZ tactical assault rifle silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+  SMG: {
+    imageUrl: 'images/armory/smg.svg',
+    imageAlt: 'Original DMZ tactical submachine gun silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+  Shotgun: {
+    imageUrl: 'images/armory/shotgun.svg',
+    imageAlt: 'Original DMZ tactical shotgun silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+  'Marksman Rifle': {
+    imageUrl: 'images/armory/marksman-rifle.svg',
+    imageAlt: 'Original DMZ tactical marksman rifle silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+  'Sniper Rifle': {
+    imageUrl: 'images/armory/sniper-rifle.svg',
+    imageAlt: 'Original DMZ tactical sniper rifle silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+  Pistol: {
+    imageUrl: 'images/armory/pistol.svg',
+    imageAlt: 'Original DMZ tactical pistol silhouette.',
+    imageSourceName: 'DMZ original vector asset',
+    imageUsageStatus: 'Original DMZ Asset',
+  },
+};
+
+const attachClassImage = (build: WeaponBuild): WeaponBuild => ({
+  ...build,
+  ...(weaponClassImages[build.weaponClass] ?? { imageUsageStatus: 'Unavailable' as const }),
+});
+
+const sourceWeaponBuilds: WeaponBuild[] = [
   {
     id: 'cbrs-3-multiplayer',
     weapon: 'CBRS-3',
@@ -47,7 +99,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 04',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: 'cbrs-3-zombies',
@@ -98,7 +150,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 04',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: 'krs-762-zombies',
@@ -149,7 +201,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 03',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: 'strider-300-zombies',
@@ -200,7 +252,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 03',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: 'mk35-isr-zombies',
@@ -268,7 +320,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 03',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: '1911-warzone',
@@ -319,7 +371,7 @@ export const weaponBuilds: WeaponBuild[] = [
     lastCheckedDate,
     verifiedSeason: 'Season 02',
     verificationStatus: 'Source Verified',
-    featured: true,
+    featured: false,
   },
   {
     id: 'sg-12-warzone',
@@ -338,7 +390,154 @@ export const weaponBuilds: WeaponBuild[] = [
     verificationStatus: 'Source Verified',
     featured: false,
   },
+  {
+    id: 'fg42-multiplayer-gamespot-s5',
+    weapon: 'FG42',
+    weaponClass: 'Assault Rifle',
+    mode: 'Multiplayer',
+    buildCode: 'A16-34FC8-LJJUI-11',
+    buildName: 'GameSpot Season 5 Multiplayer Build',
+    summary: 'A Season 5 multiplayer AR build focused on ammo capacity, fire rate, and recoil control.',
+    attachments: [
+      'Optic: Fang Hoverpoint ELO',
+      'Muzzle: Redwell Shade-X Suppressor',
+      'Magazine: Overbook Extended Mag',
+      'Underbarrel: RIF Handguard',
+      'Rear Grip: Tress Grip',
+      'Stock: MFS Ambilateral Stock',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5MultiplayerSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-black-ops-7-season-5-multiplayer/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
+  {
+    id: 'swordfish-a1-multiplayer-gamespot-s5',
+    weapon: 'Swordfish A1',
+    weaponClass: 'Marksman Rifle',
+    mode: 'Multiplayer',
+    buildCode: 'M05-2TKLA-WUX5U-71',
+    buildName: 'GameSpot Season 5 Multiplayer Build',
+    summary: 'A burst-fire marksman setup built for a cleaner sight picture, recoil control, and faster ADS handling.',
+    attachments: [
+      'Optic: Fang Hoverpoint ELO',
+      'Muzzle: Redwell Shade-X Suppressor',
+      'Underbarrel: Fixus Underbarrel',
+      'Rear Grip: Hawker VIC-R Grip',
+      'Fire Mods: MFS Penta Burst Mod',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5MultiplayerSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-black-ops-7-season-5-multiplayer/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
+  {
+    id: 'gremlin-multiplayer-gamespot-s5',
+    weapon: 'Gremlin',
+    weaponClass: 'SMG',
+    mode: 'Multiplayer',
+    buildCode: 'S16-3M5Z7-FLY31',
+    buildName: 'GameSpot Season 5 Multiplayer Build',
+    summary: 'A dual-wield SMG setup aimed at hipfire control, reload speed, and close-range pressure.',
+    attachments: [
+      'Muzzle: Hawker Series',
+      'Magazine: Leaper Fast Mag',
+      'Rear Grip: Saber Grip',
+      'Laser: Convergence Box Laser',
+      'Fire Mod: Buffer Springs',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5MultiplayerSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-black-ops-7-season-5-multiplayer/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
+  {
+    id: 'fg42-warzone-gamespot-s5',
+    weapon: 'FG42',
+    weaponClass: 'Assault Rifle',
+    mode: 'Warzone',
+    buildCode: 'A16-34FIQ-XHAUL-11',
+    buildName: 'GameSpot Season 5 Warzone Build',
+    summary: 'A Warzone long-range FG42 setup for damage range, bullet velocity, and recoil management.',
+    attachments: [
+      'Optic: Fang Hoverpoint ELO',
+      'Muzzle: Monolithic Suppressor',
+      'Barrel: 16" Bandolier Barrel',
+      'Underbarrel: RIF Handguard',
+      'Magazine: Debase Extended Mag',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5WarzoneSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-warzone-for-bo7-season-5/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
+  {
+    id: 'vst-warzone-gamespot-s5',
+    weapon: 'VST',
+    weaponClass: 'SMG',
+    mode: 'Warzone',
+    buildCode: 'S12-6KDYX-HL11',
+    buildName: 'GameSpot Season 5 Warzone Build',
+    summary: 'A close-range Warzone SMG build for recoil control, fire rate, and faster movement.',
+    attachments: [
+      'Muzzle: LTI Stentorian Brake',
+      'Barrel: 9.7: Enmity Barrel',
+      'Underbarrel: EAM Steady-90 Grip',
+      'Magazine: Amplify Extended Mag I',
+      'Stock: Hawker Cub-55 Pad',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5WarzoneSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-warzone-for-bo7-season-5/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
+  {
+    id: 'strider-300-warzone-gamespot-s5',
+    weapon: 'Strider 300',
+    weaponClass: 'Sniper Rifle',
+    mode: 'Warzone',
+    buildCode: 'R07-2JD6P-5NM5G-6J11',
+    buildName: 'GameSpot Season 5 Warzone Build',
+    summary: 'A bolt-action Warzone sniper setup for bullet velocity, ADS time, and reload speed.',
+    attachments: [
+      'Muzzle: Monolithic Suppressor',
+      'Barrel: 25" Bowen Grooved Barrel',
+      'Magazine: Carnation Fast Mag',
+      'Rear Grip: Hatch Quick Grip',
+      'Fire Mods: .300 WM Overpressured',
+    ],
+    sourceType: 'Community',
+    sourceName: gamespotSeason5WarzoneSource,
+    sourceUrl: 'https://www.gamespot.com/articles/best-loadouts-in-call-of-duty-warzone-for-bo7-season-5/',
+    sourcePublishedDate: '2026-07-27',
+    lastCheckedDate,
+    verifiedSeason: 'Season 05',
+    verificationStatus: 'Source Verified',
+    featured: true,
+  },
 ];
+
+export const weaponBuilds: WeaponBuild[] = sourceWeaponBuilds.map(attachClassImage);
 
 const weaponBuildIds = new Set(weaponBuilds.map((build) => build.id));
 

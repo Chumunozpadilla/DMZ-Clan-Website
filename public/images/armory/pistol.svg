@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Original pistol silhouette</title>
+  <desc id="desc">Original DMZ tactical vector silhouette of a generic pistol.</desc>
+  <rect width="640" height="300" fill="none"/>
+  <g fill="none" stroke="#f5c542" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M126 122h250l34 34h96v34H302l-34-34H126z"/>
+    <path d="M254 156l28 88h70l-42-88"/>
+    <path d="M148 102h62"/>
+    <path d="M430 156h58"/>
+    <path d="M306 190h46"/>
+  </g>
+  <g stroke="#d72638" stroke-width="8" stroke-linecap="round">
+    <path d="M132 82h104"/>
+    <path d="M402 224h88"/>
+  </g>
+</svg>

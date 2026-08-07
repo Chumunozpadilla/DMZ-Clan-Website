@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Original marksman rifle silhouette</title>
+  <desc id="desc">Original DMZ tactical vector silhouette of a generic marksman rifle.</desc>
+  <rect width="640" height="300" fill="none"/>
+  <g fill="none" stroke="#f5c542" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M76 144h226l34-34h124l28 34h76v30h-90l-24 26H312l-28-26H76z"/>
+    <path d="M158 174l-28 60h54l42-60"/>
+    <path d="M332 200l22 50h56l-20-50"/>
+    <path d="M70 124h86"/>
+    <path d="M564 150h46"/>
+    <path d="M352 96h92"/>
+    <path d="M380 78v18"/>
+  </g>
+  <g stroke="#d72638" stroke-width="8" stroke-linecap="round">
+    <path d="M96 90h130"/>
+    <path d="M438 232h120"/>
+  </g>
+</svg>

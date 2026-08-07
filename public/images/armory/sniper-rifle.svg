@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Original sniper rifle silhouette</title>
+  <desc id="desc">Original DMZ tactical vector silhouette of a generic sniper rifle.</desc>
+  <rect width="640" height="300" fill="none"/>
+  <g fill="none" stroke="#f5c542" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M56 146h250l36-34h128l30 34h96v28H488l-28 28H312l-30-28H56z"/>
+    <path d="M150 174l-32 62h58l48-62"/>
+    <path d="M334 202l24 50h60l-24-50"/>
+    <path d="M78 122h132"/>
+    <path d="M594 160h34"/>
+    <path d="M334 84h146"/>
+    <circle cx="408" cy="84" r="22"/>
+  </g>
+  <g stroke="#d72638" stroke-width="8" stroke-linecap="round">
+    <path d="M62 92h150"/>
+    <path d="M450 238h116"/>
+  </g>
+</svg>
