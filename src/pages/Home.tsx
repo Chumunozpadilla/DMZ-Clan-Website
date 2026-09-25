@@ -1,6 +1,7 @@
 import DiscordCTA from '../components/sections/DiscordCTA';
 import FeatureGrid from '../components/sections/FeatureGrid';
 import HeroSection from '../components/sections/HeroSection';
+import LatestPatchNotes from '../components/sections/LatestPatchNotes';
 import MediaPreview from '../components/sections/MediaPreview';
 import OperationsAnnouncement from '../components/sections/OperationsAnnouncement';
 import OperationsPreview from '../components/sections/OperationsPreview';
@@ -14,6 +15,7 @@ export default function Home() {
       <OperationsAnnouncement />
       <HeroSection />
       <FeatureGrid />
+      <LatestPatchNotes />
       <OperationsPreview />
       <RulesPreview />
       <MediaPreview />

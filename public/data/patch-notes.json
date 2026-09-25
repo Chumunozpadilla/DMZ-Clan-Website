@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "sourceName": "Official Call of Duty Patch Notes",
+  "sourceUrl": "https://www.callofduty.com/patchnotes",
+  "generatedAt": "2026-09-25T16:51:53.903Z",
+  "streams": [
+    {
+      "id": "mw4",
+      "gameCode": "MW4",
+      "gameName": "Call of Duty: Modern Warfare 4",
+      "latest": {
+        "title": "Modern Warfare 4 Beta Patch Notes",
+        "date": "September 01, 2026",
+        "url": "https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes",
+        "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/beta/MW4-BETA-PATCH-NOTES-TOUT.jpg"
+      },
+      "previous": []
+    },
+    {
+      "id": "warzone",
+      "gameCode": "WARZONE",
+      "gameName": "Call of Duty: Warzone",
+      "latest": {
+        "title": "Call of Duty: Warzone Season 06 Patch Notes",
+        "date": "September 16, 2026",
+        "url": "https://www.callofduty.com/patchnotes/2026/09/call-of-duty-bo7-warzone-season-06-patch-notes",
+        "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/bo7/wz/s06/WZ-SEASON-06-PATCH-NOTES.jpg"
+      },
+      "previous": [
+        {
+          "title": "Call of Duty: Warzone Season 05 Reloaded Patch Notes",
+          "date": "August 28, 2026",
+          "url": "https://www.callofduty.com/patchnotes/2026/08/call-of-duty-bo7-warzone-season-05-reloaded-patch-notes"
+        },
+        {
+          "title": "Call of Duty: Warzone Season 05 Patch Notes",
+          "date": "August 12, 2026",
+          "url": "https://www.callofduty.com/patchnotes/2026/07/call-of-duty-bo7-warzone-season-05-patch-notes"
+        },
+        {
+          "title": "Call of Duty: Warzone Season 04 Reloaded Patch Notes",
+          "date": "July 15, 2026",
+          "url": "https://www.callofduty.com/patchnotes/2026/06/call-of-duty-bo7-warzone-season-04-reloaded-patch-notes"
+        }
+      ]
+    }
+  ]
+}
