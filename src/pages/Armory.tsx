@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ArmoryFilters, { type ArmoryFilterState } from '../components/sections/ArmoryFilters';
 import WeaponBuildCard from '../components/sections/WeaponBuildCard';
 import SectionHeader from '../components/ui/SectionHeader';
-import { currentBlackOps7Season, sourceTypes, weaponBuilds, weaponClasses, weaponModes } from '../data/weaponBuilds';
+import { armoryWeapons, currentBlackOps7Season, sourceTypes, weaponClasses, weaponModes } from '../data/weaponBuilds';
+import { requestCompactRadio } from '../utils/radioLayout';
 
 const defaultFilters: ArmoryFilterState = {
   query: '',
@@ -16,24 +17,39 @@ const defaultFilters: ArmoryFilterState = {
 export default function Armory() {
   const [filters, setFilters] = useState<ArmoryFilterState>(defaultFilters);
 
-  const filteredBuilds = useMemo(() => {
+  useEffect(() => {
+    requestCompactRadio(true);
+    return () => requestCompactRadio(false);
+  }, []);
+
+  const filteredWeapons = useMemo(() => {
     const query = filters.query.trim().toLowerCase();
 
-    return weaponBuilds.filter((build) => {
-      const matchesQuery =
-        query.length === 0 ||
-        [build.weapon, build.buildName, build.weaponClass, build.sourceName, build.mode, build.buildCode].some((value) =>
-          value.toLowerCase().includes(query),
-        );
-      const matchesMode = filters.mode === 'All' || build.mode === filters.mode;
-      const matchesClass = filters.weaponClass === 'All Classes' || build.weaponClass === filters.weaponClass;
-      const matchesSource = filters.sourceType === 'All Sources' || build.sourceType === filters.sourceType;
-      const matchesFeatured = !filters.featuredOnly || build.featured;
-      const matchesRecent = !filters.recentOnly || build.lastCheckedDate === currentBlackOps7Season.lastCheckedDate;
+    return armoryWeapons.flatMap((weapon) => {
+      const weaponMatchesQuery = query.length === 0 || [weapon.weapon, weapon.weaponClass, weapon.description ?? ''].some((value) =>
+        value.toLowerCase().includes(query),
+      );
+      const matchingVariants = weapon.variants.filter((variant) => {
+        const variantMatchesQuery =
+          query.length === 0 ||
+          weaponMatchesQuery ||
+          [variant.buildName, variant.sourceName, variant.mode, variant.buildCode].some((value) => value.toLowerCase().includes(query));
+        const matchesMode = filters.mode === 'All' || variant.mode === filters.mode;
+        const matchesSource = filters.sourceType === 'All Sources' || variant.sourceType === filters.sourceType;
+        const matchesRecent = !filters.recentOnly || variant.lastCheckedDate === currentBlackOps7Season.lastCheckedDate;
 
-      return matchesQuery && matchesMode && matchesClass && matchesSource && matchesFeatured && matchesRecent;
+        return variantMatchesQuery && matchesMode && matchesSource && matchesRecent;
+      });
+      const matchesClass = filters.weaponClass === 'All Classes' || weapon.weaponClass === filters.weaponClass;
+      const matchesFeatured = !filters.featuredOnly || weapon.featured;
+
+      return matchesClass && matchesFeatured && matchingVariants.length > 0
+        ? [{ weapon, matchingVariantCount: matchingVariants.length, preferredVariantId: matchingVariants[0].id }]
+        : [];
     });
   }, [filters]);
+
+  const matchingBuildCount = filteredWeapons.reduce((total, result) => total + result.matchingVariantCount, 0);
 
   return (
     <section className="page-section page-intro armory-page">
@@ -62,14 +78,14 @@ export default function Armory() {
       />
 
       <div className="armory-results-header" aria-live="polite">
-        <strong>{filteredBuilds.length}</strong>
-        <span>{filteredBuilds.length === 1 ? 'build matched' : 'builds matched'}</span>
+        <strong>{filteredWeapons.length} {filteredWeapons.length === 1 ? 'weapon' : 'weapons'}</strong>
+        <span>/ {matchingBuildCount} {matchingBuildCount === 1 ? 'verified build' : 'verified builds'}</span>
       </div>
 
-      {filteredBuilds.length > 0 ? (
+      {filteredWeapons.length > 0 ? (
         <div className="armory-build-grid">
-          {filteredBuilds.map((build) => (
-            <WeaponBuildCard build={build} key={build.id} />
+          {filteredWeapons.map(({ weapon, preferredVariantId }) => (
+            <WeaponBuildCard weapon={weapon} preferredVariantId={preferredVariantId} key={weapon.id} />
           ))}
         </div>
       ) : (

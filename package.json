@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "typecheck": "tsc -b",
-    "test": "node --test scripts/patch-notes/*.test.mjs",
+    "test": "node --test scripts/armory/*.test.mjs scripts/patch-notes/*.test.mjs",
     "patchnotes:update": "node scripts/patch-notes/updatePatchNotes.mjs"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronUp, Pause, Play, Radio, Volume2, VolumeX } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { assetPath } from '../../utils/assetPath';
+import { radioLayoutEvent, type RadioLayoutRequest } from '../../utils/radioLayout';
 
 const audioSrc = assetPath('audio/dmz-theme.mp3');
 const volumeKey = 'dmz-radio-volume';
@@ -38,6 +39,8 @@ export default function TacticalRadio() {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [layoutRequest, setLayoutRequest] = useState<RadioLayoutRequest>({ compact: false, align: 'right' });
+  const isVisuallyCollapsed = isCollapsed || layoutRequest.compact;
 
   const attemptPlayback = useCallback(async () => {
     const audio = audioRef.current;
@@ -52,6 +55,15 @@ export default function TacticalRadio() {
     } catch {
       setNeedsActivation(true);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleLayoutRequest = (event: Event) => {
+      setLayoutRequest((event as CustomEvent<RadioLayoutRequest>).detail);
+    };
+
+    window.addEventListener(radioLayoutEvent, handleLayoutRequest);
+    return () => window.removeEventListener(radioLayoutEvent, handleLayoutRequest);
   }, []);
 
   useEffect(() => {
@@ -170,7 +182,14 @@ export default function TacticalRadio() {
   };
 
   return (
-    <aside className={isCollapsed ? 'tactical-radio collapsed' : 'tactical-radio'} aria-label="DMZ Tactical Radio">
+    <aside
+      className={[
+        'tactical-radio',
+        isVisuallyCollapsed ? 'collapsed' : '',
+        layoutRequest.compact ? `collision-compact collision-${layoutRequest.align}` : '',
+      ].filter(Boolean).join(' ')}
+      aria-label="DMZ Tactical Radio"
+    >
       <audio ref={audioRef} src={audioSrc} autoPlay loop preload="auto" />
       <div className="radio-panel-top">
         <div className="radio-title">
@@ -183,14 +202,16 @@ export default function TacticalRadio() {
         <button
           className="radio-icon-button"
           type="button"
-          aria-label={isCollapsed ? 'Expand tactical radio' : 'Collapse tactical radio'}
+          aria-label={isVisuallyCollapsed ? 'Expand tactical radio' : 'Collapse tactical radio'}
           onClick={() => setIsCollapsed((value) => !value)}
+          disabled={layoutRequest.compact}
+          title={layoutRequest.compact ? 'Radio controls are compact while Armory controls are in view.' : undefined}
         >
-          {isCollapsed ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+          {isVisuallyCollapsed ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
         </button>
       </div>
 
-      {!isCollapsed ? (
+      {!isVisuallyCollapsed ? (
         <>
           {needsActivation ? (
             <button className="radio-activation" type="button" onClick={attemptPlayback}>
