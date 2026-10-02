@@ -1337,6 +1337,12 @@ dt {
   filter: saturate(0.92) contrast(1.05);
 }
 
+.armory-weapon-figure.image-official-weapon-image .armory-weapon-image {
+  object-fit: contain;
+  background: #03070b;
+  filter: none;
+}
+
 .armory-weapon-figure.image-dmz-fallback .armory-weapon-image {
   object-fit: contain;
   padding: 2.8rem 1rem 3.2rem;
@@ -1378,6 +1384,13 @@ dt {
   max-width: calc(100% - 1.5rem);
   padding: 0.55rem 0.65rem;
   background: rgba(5, 7, 9, 0.86);
+}
+
+.weapon-build-visual .weapon-visual-labels {
+  top: 0;
+  left: 0;
+  padding: 0.75rem;
+  background: rgba(5, 7, 9, 0.94);
 }
 
 .weapon-visual-labels span,
