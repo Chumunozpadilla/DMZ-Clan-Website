@@ -319,6 +319,355 @@ main {
   background: #080a0c;
 }
 
+.deployment-status {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0;
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-left: 3px solid #f5c542;
+  padding: 0.75rem;
+  background: rgba(5, 7, 9, 0.82);
+  color: #f5c542;
+}
+
+.deployment-status.status-dmz-early-access {
+  border-left-color: #55c96b;
+  color: #55c96b;
+}
+
+.deployment-status.status-full-deployment {
+  border-left-color: #ffffff;
+  color: #ffffff;
+}
+
+.deployment-status span {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.deployment-status strong {
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.deployment-status small {
+  color: #c7cdd5;
+  line-height: 1.35;
+}
+
+.deployment-mini-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 1rem 0 0;
+  padding: 0;
+  background: rgba(245, 197, 66, 0.25);
+  list-style: none;
+}
+
+.deployment-mini-timeline li {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0.65rem;
+  background: #0b0f13;
+}
+
+.deployment-mini-timeline li.reached {
+  box-shadow: inset 0 2px 0 #55c96b;
+}
+
+.deployment-mini-timeline time {
+  color: #f5c542;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.deployment-mini-timeline span {
+  color: #d6dbe1;
+  font-size: 0.68rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.deployment-center {
+  margin: 0 0 4.5rem;
+  border-top: 1px solid rgba(245, 197, 66, 0.42);
+  border-bottom: 1px solid rgba(245, 197, 66, 0.24);
+  padding: clamp(1rem, 3vw, 1.6rem) 0 clamp(1.2rem, 4vw, 2rem);
+}
+
+.deployment-center-header,
+.deployment-intel-heading,
+.deployment-video-copy {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.deployment-center-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.deployment-center-header > div > p:last-child {
+  max-width: 52rem;
+}
+
+.deployment-source-link,
+.deployment-video-copy a,
+.deployment-intel-panel a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #f5c542;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.deployment-source-link {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  border: 1px solid rgba(245, 197, 66, 0.32);
+  padding: 0.65rem 0.8rem;
+  background: rgba(8, 10, 12, 0.78);
+}
+
+.deployment-source-link:hover,
+.deployment-source-link:focus-visible,
+.deployment-video-copy a:hover,
+.deployment-video-copy a:focus-visible,
+.deployment-intel-panel a:hover,
+.deployment-intel-panel a:focus-visible {
+  color: #ffffff;
+}
+
+.deployment-command-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.deployment-command-panel,
+.deployment-video-panel,
+.deployment-intel-terminal {
+  min-width: 0;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+  background:
+    linear-gradient(90deg, rgba(245, 197, 66, 0.08) 0 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 66, 0.06) 0 1px, transparent 1px),
+    rgba(8, 10, 12, 0.88);
+  background-size: 30px 30px;
+  padding: 1rem;
+}
+
+.deployment-command-panel .deployment-status {
+  margin-top: 0;
+}
+
+.deployment-timeline {
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.deployment-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.deployment-timeline li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  bottom: -0.1rem;
+  left: 0.35rem;
+  width: 1px;
+  background: rgba(245, 197, 66, 0.3);
+}
+
+.deployment-marker {
+  position: relative;
+  z-index: 1;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-top: 0.15rem;
+  border: 2px solid #f5c542;
+  background: #080a0c;
+  transform: rotate(45deg);
+}
+
+.deployment-timeline li.complete .deployment-marker {
+  border-color: #55c96b;
+  background: #55c96b;
+}
+
+.deployment-timeline li.active .deployment-marker {
+  border-color: #ffffff;
+  background: #f5c542;
+  box-shadow: 0 0 0 4px rgba(245, 197, 66, 0.14);
+}
+
+.deployment-timeline time {
+  display: block;
+  color: #f5c542;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.deployment-timeline h3 {
+  margin: 0.12rem 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.deployment-timeline p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.deployment-center-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.deployment-center-actions > * {
+  flex: 1 1 13rem;
+}
+
+.deployment-video-panel iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #050709;
+}
+
+.deployment-video-copy {
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.deployment-video-copy strong {
+  max-width: 32rem;
+  color: #ffffff;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.deployment-intel-terminal {
+  margin-top: 1rem;
+}
+
+.deployment-intel-heading {
+  align-items: end;
+  margin-bottom: 0.8rem;
+}
+
+.deployment-intel-heading h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.deployment-intel-heading > span {
+  color: #87919f;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.deployment-intel-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(245, 197, 66, 0.28);
+}
+
+.deployment-intel-tabs button {
+  min-width: 0;
+  min-height: 2.9rem;
+  border: 0;
+  padding: 0.55rem 0.35rem;
+  background: #0d1116;
+  color: #adb5c0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.deployment-intel-tabs button:hover,
+.deployment-intel-tabs button[aria-selected='true'] {
+  background: rgba(245, 197, 66, 0.16);
+  color: #f5c542;
+}
+
+.deployment-intel-tabs button:focus-visible,
+.deployment-intel-panel:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid #f5c542;
+  outline-offset: 2px;
+}
+
+.deployment-intel-panel {
+  min-height: 12rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-top: 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(120deg, rgba(215, 38, 56, 0.12), rgba(5, 7, 9, 0.9) 45%);
+}
+
+.deployment-intel-panel > span {
+  color: #d72638;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.deployment-intel-panel h4 {
+  margin: 0.3rem 0 0.45rem;
+  color: #ffffff;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  text-transform: uppercase;
+}
+
+.deployment-intel-panel p {
+  max-width: 48rem;
+  margin: 0 0 1rem;
+}
+
+.deployment-disclaimer {
+  margin: 0.9rem 0 0;
+  color: #87919f;
+  font-size: 0.72rem;
+}
+
 .eyebrow {
   margin: 0 0 0.65rem;
   color: #f5c542;
@@ -1993,6 +2342,7 @@ html[data-dmz-radio-compact] .tactical-radio > :not(.radio-panel-top) {
 
   .hero,
   .operations-alert,
+  .deployment-command-grid,
   .join-layout,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -2091,6 +2441,34 @@ html[data-dmz-radio-compact] .tactical-radio > :not(.radio-panel-top) {
 
   .operations-alert-video {
     padding: 0.5rem;
+  }
+
+  .deployment-mini-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .deployment-center {
+    margin-bottom: 3rem;
+  }
+
+  .deployment-center-header,
+  .deployment-intel-heading,
+  .deployment-video-copy {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .deployment-source-link {
+    align-self: flex-start;
+  }
+
+  .deployment-intel-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deployment-center-actions,
+  .deployment-center-actions .btn {
+    width: 100%;
   }
 
   .patch-notes-heading-row {
@@ -2257,6 +2635,10 @@ html[data-dmz-radio-compact] .tactical-radio > :not(.radio-panel-top) {
 
   .armory-page {
     padding-bottom: 14rem;
+  }
+
+  .operations-page {
+    padding-bottom: 10rem;
   }
 
   .tactical-radio {

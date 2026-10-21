@@ -1,13 +1,15 @@
+import Mw4DeploymentCenter from '../components/sections/Mw4DeploymentCenter';
 import SectionHeader from '../components/ui/SectionHeader';
 import { operations } from '../data/operations';
 
 export default function Operations() {
   return (
-    <section className="page-section page-intro">
+    <section className="page-section page-intro operations-page">
+      <Mw4DeploymentCenter />
       <SectionHeader
         eyebrow="Operations"
-        title="Event board"
-        description="Placeholder operations can be replaced with official DMZ events, schedules, and squad rotations."
+        title="Clan event board"
+        description="Dead Mans Zone events, squad rotations, and internal operational windows."
       />
       <div className="card-grid">
         {operations.map((operation) => (

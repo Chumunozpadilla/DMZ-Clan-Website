@@ -20,14 +20,14 @@ export default function FeaturedArmoryCarousel() {
     if (!card) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => requestCompactRadio(entry.isIntersecting, 'left'),
+      ([entry]) => requestCompactRadio(entry.isIntersecting, 'left', 'featured-armory'),
       { threshold: 0.2 },
     );
     observer.observe(card);
 
     return () => {
       observer.disconnect();
-      requestCompactRadio(false, 'left');
+      requestCompactRadio(false, 'left', 'featured-armory');
     };
   }, []);
 

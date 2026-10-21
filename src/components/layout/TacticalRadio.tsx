@@ -1,7 +1,11 @@
 import { ChevronDown, ChevronUp, Pause, Play, Radio, Volume2, VolumeX } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { assetPath } from '../../utils/assetPath';
-import { radioLayoutEvent, type RadioLayoutRequest } from '../../utils/radioLayout';
+import {
+  getCurrentRadioLayoutRequest,
+  radioLayoutEvent,
+  type RadioLayoutRequest,
+} from '../../utils/radioLayout';
 
 const audioSrc = assetPath('audio/dmz-theme.mp3');
 const volumeKey = 'dmz-radio-volume';
@@ -39,7 +43,7 @@ export default function TacticalRadio() {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [layoutRequest, setLayoutRequest] = useState<RadioLayoutRequest>({ compact: false, align: 'right' });
+  const [layoutRequest, setLayoutRequest] = useState<RadioLayoutRequest>(() => getCurrentRadioLayoutRequest());
   const isVisuallyCollapsed = isCollapsed || layoutRequest.compact;
 
   const attemptPlayback = useCallback(async () => {
@@ -63,6 +67,7 @@ export default function TacticalRadio() {
     };
 
     window.addEventListener(radioLayoutEvent, handleLayoutRequest);
+    setLayoutRequest(getCurrentRadioLayoutRequest());
     return () => window.removeEventListener(radioLayoutEvent, handleLayoutRequest);
   }, []);
 
