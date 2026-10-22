@@ -2,19 +2,25 @@
   "version": 1,
   "sourceName": "Official Call of Duty Patch Notes",
   "sourceUrl": "https://www.callofduty.com/patchnotes",
-  "generatedAt": "2026-10-21T20:11:04.013Z",
+  "generatedAt": "2026-10-22T04:44:34.459Z",
   "streams": [
     {
       "id": "mw4",
       "gameCode": "MW4",
       "gameName": "Call of Duty: Modern Warfare 4",
       "latest": {
-        "title": "Modern Warfare 4 Beta Patch Notes",
-        "date": "September 01, 2026",
-        "url": "https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes",
-        "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/beta/MW4-BETA-PATCH-NOTES-TOUT.jpg"
+        "title": "Modern Warfare 4 Launch Patch Notes",
+        "date": "October 21, 2026",
+        "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+        "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"
       },
-      "previous": []
+      "previous": [
+        {
+          "title": "Modern Warfare 4 Beta Patch Notes",
+          "date": "September 01, 2026",
+          "url": "https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes"
+        }
+      ]
     },
     {
       "id": "warzone",
