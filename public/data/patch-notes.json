@@ -2,7 +2,7 @@
   "version": 1,
   "sourceName": "Official Call of Duty Patch Notes",
   "sourceUrl": "https://www.callofduty.com/patchnotes",
-  "generatedAt": "2026-11-12T16:48:16.881Z",
+  "generatedAt": "2026-11-13T06:44:33.627Z",
   "streams": [
     {
       "id": "mw4",
@@ -10,7 +10,7 @@
       "gameName": "Call of Duty: Modern Warfare 4",
       "latest": {
         "title": "Modern Warfare 4 Season 1 Patch Notes",
-        "date": "November 07, 2026",
+        "date": "November 12, 2026",
         "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
         "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/season-1/MW4-Patch-Notes-Tout-3.jpg"
       },
@@ -33,7 +33,7 @@
       "gameName": "Call of Duty: Warzone",
       "latest": {
         "title": "Call of Duty: Warzone Season 1 Patch Notes",
-        "date": "November 07, 2026",
+        "date": "November 12, 2026",
         "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-mw4-warzone-season-1-patch-notes",
         "imageUrl": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/wz/season-1/WZ-Season-1-Patch-Notes.jpg"
       },
